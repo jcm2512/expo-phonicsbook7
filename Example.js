@@ -7,7 +7,6 @@ import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-vi
 import { Dimensions } from "react-native";
 
 import { Asset } from "expo-asset";
-
 async function loadImage() {
   const imageAsset = Asset.fromModule(require("./assets/phonics_1_5.png"));
   await imageAsset.downloadAsync();
@@ -30,7 +29,6 @@ export default function App() {
 
   useEffect(() => {
     setMax(Dimensions.get("window").width / imgSize.width);
-    console.log(maxWidth);
   }, [imgSize]);
 
   return (
@@ -56,28 +54,7 @@ export default function App() {
             width: 724,
             backgroundColor: "green",
           }}
-        >
-          <Image
-            style={{
-              width: "100%",
-              height: "100%",
-              resizeMode: "contain",
-              position: "absolute",
-            }}
-            source={
-              imageAsset ? { uri: imageAsset.localUri || imageAsset.uri } : null
-            }
-          />
-          <View
-            style={{
-              position: "absolute",
-              width: 24,
-              height: 24,
-              backgroundColor: "red",
-              left: 700,
-            }}
-          ></View>
-        </View>
+        ></View>
       </ReactNativeZoomableView>
       <StatusBar style="auto" />
     </View>
