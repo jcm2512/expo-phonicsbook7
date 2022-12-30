@@ -48,13 +48,54 @@ export default function App() {
           backgroundColor: "blue",
         }}
       >
+        <Image
+          style={{
+            width: "100%",
+            height: "100%",
+            resizeMode: "contain",
+            position: "absolute",
+          }}
+          source={
+            imageAsset ? { uri: imageAsset.localUri || imageAsset.uri } : null
+          }
+        />
+        <View
+          style={{
+            position: "absolute",
+            width: 24,
+            height: 24,
+            backgroundColor: "red",
+            left: 700,
+          }}
+        ></View>
         <View
           style={{
             height: 1024,
             width: 724,
             backgroundColor: "green",
           }}
-        ></View>
+        >
+          <Image
+            style={{
+              width: "100%",
+              height: "100%",
+              resizeMode: "contain",
+              position: "absolute",
+            }}
+            source={
+              imageAsset ? { uri: imageAsset.localUri || imageAsset.uri } : null
+            }
+          />
+          <View
+            style={{
+              position: "absolute",
+              width: 24,
+              height: 24,
+              backgroundColor: "red",
+              left: 700,
+            }}
+          ></View>
+        </View>
       </ReactNativeZoomableView>
       <StatusBar style="auto" />
     </View>
