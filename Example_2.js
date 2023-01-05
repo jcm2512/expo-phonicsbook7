@@ -7,17 +7,23 @@ import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-vi
 import { Dimensions } from "react-native";
 
 import { Asset } from "expo-asset";
-async function loadImage() {
-  // const data = require("./book_data.json");
-  // const asset = data.map((item) => item.asset);
-  // console.log(asset);
-  // const imageAsset2 = Asset.fromModule(require(asset));
-  const imageAsset = Asset.fromModule(require("./assets/phonics_1_5.png"));
-  await imageAsset.downloadAsync();
-  return imageAsset;
-}
+
+import { appData } from "./appdata";
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const assetData = require("./book_data.json");
+  const assets = appData.map((item) => Asset.fromModule(require(item.asset)));
+
+  useEffect(() => {
+    async function loadAssets() {
+      await Promise.all(assets.map((asset) => asset.downloadAsync()));
+    }
+    loadAssets();
+  }, []);
+
+  const currentAsset = assetData.find((item) => item.page === currentPage);
+
   const zoomableViewRef = React.createRef();
 
   const [imageAsset, setImageAsset] = useState(null);
@@ -66,7 +72,9 @@ export default function App() {
               position: "absolute",
             }}
             source={
-              imageAsset ? { uri: imageAsset.localUri || imageAsset.uri } : null
+              imageAsset
+                ? { uri: currentAsset.localUri || currentAsset.uri }
+                : null
             }
           />
           {/* CLICKABLE AREA */}
