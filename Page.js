@@ -1,12 +1,12 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 
-const Page = ({ source }) => {
+const Page = ({ source, height, width }) => {
   return (
     <View
       style={{
-        height: 1024,
-        width: 724,
+        height: height,
+        width: width,
         // TODO: Update background image to show loading image
         backgroundColor: "green",
       }}
