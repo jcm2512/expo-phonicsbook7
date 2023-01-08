@@ -1,12 +1,16 @@
-import * as React from "react";
+import React, { useContext } from "react";
 
 import { StyleSheet, View } from "react-native";
 
 import PagerView from "react-native-pager-view";
+import { AppStateContext } from "./AppStateContext";
 import ZoomableView from "./ZoomableView";
 
 export default function App() {
   const zoomableViewRef = React.createRef();
+
+  const msg = useContext(AppStateContext);
+  console.log(msg);
 
   return (
     <PagerView
