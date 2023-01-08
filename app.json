@@ -2,7 +2,7 @@
   "expo": {
     "name": "expo-phonicsbook7",
     "slug": "expo-phonicsbook7",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,11 +15,11 @@
       "fallbackToCacheTimeout": 0,
       "url": "https://u.expo.dev/f0ef7502-8818-4985-881b-fd039b9e5e03"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.joemagalotti.expophonicsbook7",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {

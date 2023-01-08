@@ -1,4 +1,5 @@
 const [assets, error] = useAssets([
+require("./assets/png/splash.png"),
 require("./assets/png/Phonics_1_1.png"),
 require("./assets/png/Phonics_1_2.png"),
 require("./assets/png/Phonics_1_3.png"),
