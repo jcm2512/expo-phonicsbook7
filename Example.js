@@ -1,11 +1,14 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
 
-import { Dimensions, StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View, Text } from "react-native";
 import { ReactNativeZoomableView } from "@openspacelabs/react-native-zoomable-view";
 
 import Page from "./Page";
 import { useAssets } from "expo-asset";
+
+import PagerView from "react-native-pager-view";
+import ZoomableView from "./ZoomableView";
 
 export default function App() {
   const zoomableViewRef = React.createRef();
@@ -36,25 +39,49 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ReactNativeZoomableView
-        ref={zoomableViewRef}
-        maxZoom={2}
-        minZoom={0.54}
-        bindToBorders={true}
-        contentHeight={1024}
-        contentWidth={724}
-        style={{
-          padding: 50,
-        }}
+      <PagerView
+        style={styles.pagerView}
+        initialPage={0}
+        transitionStyle={"curl"}
       >
-        <Page source={assets[4]} height={1024} width={724}></Page>
-      </ReactNativeZoomableView>
+        <View key="1">
+          <ZoomableView
+            source={require("./assets/png/Phonics_1_1.png")}
+          ></ZoomableView>
+        </View>
+        <View key="2">
+          <ZoomableView
+            source={require("./assets/png/Phonics_1_2.png")}
+          ></ZoomableView>
+        </View>
+        <View key="3">
+          <ZoomableView
+            source={require("./assets/png/Phonics_1_3.png")}
+          ></ZoomableView>
+        </View>
+        <View key="4">
+          <ZoomableView
+            source={require("./assets/png/Phonics_1_4.png")}
+          ></ZoomableView>
+        </View>
+        <View key="5">
+          <ZoomableView
+            source={require("./assets/png/Phonics_1_5.png")}
+          ></ZoomableView>
+        </View>
+      </PagerView>
+      {/* <ZoomableView></ZoomableView> */}
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  pagerView: {
+    flex: 1,
+    alignItems: "stretch",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
     alignItems: "stretch",

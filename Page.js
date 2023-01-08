@@ -22,7 +22,7 @@ const Page = ({ source, height, width }) => {
         source={source}
       />
       {/* CLICKABLE AREA */}
-      <View
+      {/* <View
         style={{
           position: "absolute",
           width: 24,
@@ -30,7 +30,7 @@ const Page = ({ source, height, width }) => {
           backgroundColor: "red",
           left: 700,
         }}
-      ></View>
+      ></View> */}
     </View>
   );
 };
