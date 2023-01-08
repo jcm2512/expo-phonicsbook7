@@ -8,7 +8,7 @@ const Page = ({ source, height, width }) => {
         height: height,
         width: width,
         // TODO: Update background image to show loading image
-        backgroundColor: "green",
+        backgroundColor: "white",
       }}
     >
       {/* PAGE IMAGE */}

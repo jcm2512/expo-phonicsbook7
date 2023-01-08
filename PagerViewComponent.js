@@ -3,20 +3,19 @@ import React, { useContext } from "react";
 import { StyleSheet, View } from "react-native";
 
 import PagerView from "react-native-pager-view";
-import { AppStateContext } from "./AppStateContext";
+import { ScrollEnabled } from "./AppStateContext";
 import ZoomableView from "./ZoomableView";
 
 export default function App() {
   const zoomableViewRef = React.createRef();
-
-  const msg = useContext(AppStateContext);
-  console.log(msg);
+  const { scrollEnabled, setScrollEnabled } = useContext(ScrollEnabled);
 
   return (
     <PagerView
       style={styles.pagerView}
       initialPage={0}
       transitionStyle={"curl"}
+      scrollEnabled={scrollEnabled}
     >
       <View key="1">
         <ZoomableView
